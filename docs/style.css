@@ -1,0 +1,49 @@
+body {
+	padding-bottom: 20px;
+	background-color: white;
+}
+
+.canvas-stage {
+	background-color: lightgray;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#result,
+#preview {
+	width: 100%;
+}
+
+.tab-content {
+	border-style: solid;
+	border-width: thin;
+	border-color: #ddd;
+	margin-bottom: 10px;
+}
+
+.nav-tabs{
+	border-bottom: none !important;
+}
+
+/* ダークモード */
+.dark-theme {
+	background: #000;
+	color: #ddd;
+	transition: .5s;
+}
+.dark-theme .jumbotron {
+	background: #333;
+	transition: .5s;
+}
+.dark-theme .nav-tabs li.active a{
+	background-color: #000;
+	color: #333;
+	transition: .5s;
+}
+
+/* QR */
+#qrdiv canvas,
+#qrdivB canvas,
+#qrdivC canvas{
+	width: 64px;
+}
