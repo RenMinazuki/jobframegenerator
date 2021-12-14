@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ja">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta description="ジョブフレームとSSを合成するジェネレータ">
+		<title>ジョブフレーム合成ジェネレータ</title>
+		<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
+		<script src="jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="jquery.qrcode.min.js"></script>
+		<script src="drg.js"></script>
+		<script src="language.js"></script>
+		<!-- ダークモード -->
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+		<script src="dark-mode.js?20200327"></script>
+		<!-- Global Site Tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101529000-3"></script>
+		<script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+    gtag('config', 'UA-101529000-3');
+		</script>
+		<link href="style.css" rel="stylesheet">
+		
+	</head>
+	<body class="">
+		<language initial="ja" lang="ja,en,ch,kr"></language>
+		<div class="jumbotron">
+			<div class="container">
+				<div class="pull-right">
+					<!-- <a class="btn btn-primary language" href="#ja">日本語</a> -->
+					<!-- <a class="btn btn-primary language" href="#en">English</a>
+					<a class="btn btn-primary language" href="#ch">中国</a>
+					<a class="btn btn-primary language" href="#kr">한국</a> -->
+					<br />
+					<br />
+					<!-- <div class="form-control"><input id="btn-mode" type="checkbox"> ダークモード</div> -->
+				</div>
+				<h1 class="lang" language="ja">竜騎士</h1>
+				<!-- <h1 class="lang" language="en" style="display:none">FF14 6.0 generator</h1>
+				<h1 class="lang" language="ch" style="display:none">FF14 6.0 发电机</h1>
+				<h1 class="lang" language="kr" style="display:none">FF14 6.0 발전기</h1> -->
+				<!-- <p id="comment" class="lang" language="ja">賢者・リーパーのジョブフレームとSSを合成ジェネレータです</p> -->
+			</div>
+		</div>
+		<div class="container">
+			<div class="alert alert-success lang" language="ja">Step1. スクリーンショットをアップロードします。</div>
+			<!-- <div class="alert alert-success lang" language="en" style="display:none">Step1.(Required) Upload the screenshot in the local PC to this site.</div>
+			<div class="alert alert-success lang" language="ch" style="display:none">Step1.(需要) 将本地PC中的屏幕截图上传到该站点。</div>
+			<div class="alert alert-success lang" language="kr" style="display:none">Step1.(필수) 로컬 PC의 스크린 샷을 사이트에 업로드하십시오.</div> -->
+			<dl class="table">
+			<dd>
+				<!-- <label for="exampleInputEmail1" class="lang" language="ja">合成したいスクリーンショット</label> -->
+				<!-- <label for="exampleInputEmail1" class="lang" language="en" style="display:none">Your screenshot</label>
+				<label for="exampleInputEmail1" class="lang" language="ch" style="display:none">你的截图</label>
+				<label for="exampleInputEmail1" class="lang" language="kr" style="display:none">내 스크린 샷</label> -->
+			</dd>
+			<dd><span><img src="" id="preview"></span><dd>
+			<dd><input type="file" accept="image/*" id="getfile"><dd>
+			</dl>
+			<br />
+			<!-- <div class="alert alert-success lang" language="ja">Step2.(必須) 合成ボタンを押してください。</div> -->
+			<!-- <div class="alert alert-success lang" language="en" style="display:none">Step2. Push the "Put" button.</div>
+			<div class="alert alert-success lang" language="ch" style="display:none">Step2. 按“放置”按钮</div>
+			<div class="alert alert-success lang" language="kr" style="display:none">Step2. 합성 버튼을 누르십시오.</div> -->
+			<div id="alert" class="alert alert-warning" role="alert"></div>
+			<div class="container">
+				<div class="row">
+					<button id="update" class="col-sm-2 editgenerator btn btn-1">
+						<div class="lang editgenerator" language="ja">合成</div>
+						<!-- <div class="lang editgenerator" language="en" style="display:none">Put</div>
+						<div class="lang editgenerator" language="ch" style="display:none">放置</div>
+						<div class="lang editgenerator" language="kr" style="display:none">넣기</div> -->
+					</button>
+					<button id="reset" class="col-sm-2 editgenerator btn btn-2">
+						<div class="lang editgenerator" language="ja">リセット</div>
+						<!-- <div class="lang editgenerator" language="en" style="display:none">Reset</div>
+						<div class="lang editgenerator" language="ch" style="display:none">重启</div>
+						<div class="lang editgenerator" language="kr" style="display:none">다시 놓기</div> -->
+					</button>
+					<button id="left" class="col-sm-2 editgenerator btn btn-default">←</button>
+					<button id="up" class="col-sm-2 editgenerator btn btn-default">↑</button>
+					<button id="down" class="col-sm-2 editgenerator btn btn-default">↓</button>
+					<button id="right" class="col-sm-2 editgenerator btn btn-default">→</button>
+					<button id="zoomin" class="col-sm-2 editgenerator btn btn-default glyphicon glyphicon-resize-full"></button>
+					<button id="zoomout" class="col-sm-2 editgenerator btn btn-default glyphicon glyphicon-resize-small"></button>
+					<button id="rotation_l" class="col-sm-2 editgenerator btn btn-default glyphicon glyphicon-repeat" style="transform: scale(-1, 1);"></button>
+					<button id="rotation_r" class="col-sm-2 editgenerator btn btn-default glyphicon glyphicon-repeat"></button>
+					<button id="alpha_down" class="col-sm-2 editgenerator btn btn-default">
+						<div id="alpha_down" class="lang editgenerator" language="ja">薄く</div>
+						<!-- <div id="alpha_down" class="lang editgenerator" language="en" style="display:none">Thin</div>
+						<div id="alpha_down" class="lang editgenerator" language="ch" style="display:none">瘦</div>
+						<div id="alpha_down" class="lang editgenerator" language="kr" style="display:none">얇은</div> -->
+					</button>
+					<button id="alpha_up" disabled class="col-sm-2 editgenerator btn btn-default">
+						<div id="alpha_up" class="lang editgenerator" language="ja">濃く</div>
+						<!-- <div id="alpha_up" class="lang editgenerator" language="en" style="display:none">Dark</div>
+						<div id="alpha_up" class="lang editgenerator" language="ch" style="display:none">黑暗</div>
+						<div id="alpha_up" class="lang editgenerator" language="kr" style="display:none">진하게</div> -->
+					</button>
+				</div>
+			</div>
+			<div>
+					<canvas id="canvas" width="100%" height="100%" style="display:none;"></canvas>
+					<canvas id="canvasB" width="100%" height="100%" style="display:none;"></canvas>
+					<canvas id="canvasC" width="100%" height="100%" style="display:none;"></canvas>
+			</div>
+			<div class="module">
+				<div class="container canvas-stage">
+					<canvas id="result" width="100%" height="100%"></canvas>
+				</div>
+			</div>
+			<br />
+			<div class="alert alert-success lang" language="ja">Step3. 保存してください</div>
+			<!-- <div class="alert alert-success lang" language="en" style="display:none">Step3. Please Download.</div>
+			<div class="alert alert-success lang" language="ch" style="display:none">Step3. 请下载。</div>
+			<div class="alert alert-success lang" language="kr" style="display:none">Step3. 다운로드하십시오.</div> -->
+			<div class="module">
+				<div style="display:none">
+					<img id="newImg">
+					<a href="" id="dlImg"></a>
+				</div>
+				<h5>
+					ダウンロードボタンからダウンロード可能です。
+					<button id="btnDownload" class="btn primary lang btnDownload" language="ja">ダウンロード</button>
+					<!-- <button id="btnDownload" class="btn btn-primary lang btnDownload" language="en" style="display:none">Download</button>
+					<button id="btnDownload" class="btn btn-primary lang btnDownload" language="ch" style="display:none">下载</button>
+					<button id="btnDownload" class="btn btn-primary lang btnDownload" language="kr" style="display:none">다운로드</button> -->
+				</h5>
+				<h5>
+					スマホなどの場合は、別ウィンドウを開いた方が保存しやすいかもしれません。
+					<button id="btnNewWindow" class="btn primary lang btnNewWindow" language="ja">別ウィンドウを開く</button>
+					<!-- <button id="btnNewWindow" class="btn btn-primary lang btnNewWindow" language="en" style="display:none">Open another window</button>
+					<button id="btnNewWindow" class="btn btn-primary lang btnNewWindow" language="ch" style="display:none">打开另一个窗口</button>
+					<button id="btnNewWindow" class="btn btn-primary lang btnNewWindow" language="kr" style="display:none">다른 창을 엽니 다</button> -->
+				</h5>
+				<h5>もしダウンロードボタンが使えない場合は、生成結果を右クリックしてダウンロードしてください。</h5>
+			</div>
+			<hr />
+
+		</div>
+	</body>
+</html>
