@@ -153,9 +153,15 @@ a{
 
 
 a:hover{
-  color : #9CA1AD;
+  color : #E1E1E1;
 	text-decoration: none;
 }
+
+a:active{
+  color : #E1E1E1;
+	text-decoration: none;
+}
+
 
 body {
   font-family: "Helvetica Neue",
