@@ -1,5 +1,23 @@
-body {
-	padding-bottom: 20px;
+.heroarea {
+	/* background-image: url(img/top.jpg);
+	background-size:  contain; 
+	height: 100vh; */
+	/* margin-bottom: 5px; */
+	padding-top: 0px;
+}
+
+h1 {
+	margin-bottom: 60px;
+}
+
+.heroarea img {
+	width: 100%;
+}
+
+h1 {
+	color: #9b9b9b;
+	font-size: 30px;
+	text-align: left;
 }
 
 .canvas-stage {
@@ -15,7 +33,7 @@ body {
 .tab-content {
 	border-style: solid;
 	border-width: thin;
-	border-color: #fffffe;
+	border-color: #202223;
 	margin-bottom: 10px;
 }
 
@@ -24,7 +42,7 @@ body {
 }
 
 /* ダークモード */
-.dark-theme {
+/* .dark-theme {
 	background: #000;
 	color: #ddd;
 	transition: .5s;
@@ -37,7 +55,7 @@ body {
 	background-color: #000;
 	color: #333;
 	transition: .5s;
-}
+} */
 
 /* QR */
 #qrdiv canvas,
@@ -47,82 +65,95 @@ body {
 }
 
 
-.jumbotron h1 {
-	color: #272343;
+/* .jumbotron h1 {
+	color: #9CA1AD;
 }
+ */
+
+
 
 .lang  {
-	color: #272343;
+	color: #9CA1AD;
 }
 
 body {
-	color: #272343;
-	background-color: #fffffe;
+	color: #9CA1AD;
+	background-color: #202223;
 }
 
 
 .btn-1 {
-	background-color: #ffd803;
-	border-color: #272343
+	background-color: #E1E1E1;
+	border-color: #9CA1AD
 }
 
 .btn-2 {
- background-color: #bae8e8;
- border-color: #272343
+ background-color: #393D48;
+ border-color: #9CA1AD
 }
 
 .jumbotron {
-	background-color: #e3f6f5;
 	border-style: none;
+	padding: 5px;
+	background-color: #393D48;
+	margin: 0;
 }
 
 .alert-success {
-	background-color: #bae8e8;
+	background-color: #393D48;
   border-style: none;
 }
 
 .alert-warning {
-	color: #272343;
-	background-color: #bae8e8;
+	color: #9CA1AD;
+	background-color: #393D48;
 	border-style: none;
 }
 
 
+
+
 .canvas-stage {
-	background-color: #e3f6f5;
+	background-color: #393D48;
 }
 
 .btn-default {
-	border-color: #272343;
+	border-color: #9CA1AD;
+	color: #393D48;
+	background-color: #fff;
+}
+
+#alpha_up, #alpha_down, #btnDownload,#btnNewWindow {
+	color: #393D48;
 }
 
 
 .primary {
-	background-color: #ffd803;
-	border-color: #272343
+	background-color: #E1E1E1;
+	border-color: #9CA1AD
 }
 
 .primary:active {
-	background-color: #ffd803;
-	border-color: #272343;
-	color: #272343;
+	background-color: #E1E1E1;
+	border-color: #9CA1AD;
+	color: #9CA1AD;
 }
 
 
 .btn.focus, .btn:focus, .btn:hover  {
-	background-color: #ffd803;
-	border-color: #272343;
-	color: #272343;
+	background-color: #E1E1E1;
+	border-color: #9CA1AD;
+	color: #9CA1AD;
 }
 
 a{
   text-decoration: none;
-	color: #272343;
+	color: #9CA1AD;
 }
 
 
 a:hover{
-  color : #e3f6f5;
+  color : #9CA1AD;
 	text-decoration: none;
 }
 
@@ -134,3 +165,46 @@ body {
     Meiryo,
     sans-serif;
 }
+
+
+.jobselect {
+	margin-bottom: 20px;
+}
+
+.window {
+	margin-top: 25px;
+}
+
+
+
+footer {
+	background-color: #393D48;
+	text-align: center;
+	margin-top: 80px;
+	font-size: 1.5rem;
+	line-height: 2.8rem;
+	letter-spacing: 0.3rem;
+	bottom: 0; /*下に固定*/
+}
+
+@media screen and (max-width:480px){
+
+
+
+
+footer {
+	font-size: 15px;
+	letter-spacing: normal;
+	margin-top: 40px;
+}
+
+h1  {
+	font-size: 22px;
+}
+
+h1 {
+	margin-bottom: 30px;
+}
+
+}
+
