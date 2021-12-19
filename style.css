@@ -117,6 +117,9 @@ body {
 	background-color: #393D48;
 }
 
+
+
+
 .btn-default {
 	border-color: #9CA1AD;
 	color: #393D48;
@@ -192,6 +195,22 @@ footer {
 	letter-spacing: 0.3rem;
 	bottom: 0; /*下に固定*/
 }
+
+
+
+.lang-btn {
+	border-color: #9CA1AD;
+	color: #393D48;
+	background-color: rgb(247, 210, 48);
+}
+
+
+.lang-btn:active, .lang-btn:focus, .lang-btn:hover  {
+	background-color: rgb(253, 229, 122);
+	border-color: #9CA1AD;
+	color: #393D48;
+}
+
 
 @media screen and (max-width:480px){
 
